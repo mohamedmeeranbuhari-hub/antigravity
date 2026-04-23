@@ -1,0 +1,46 @@
+Here is the "Open-Scope" project structured as a formal engineering proposal. You can use this directly for your Hackathon Abstract, Presentation Slides, or GitHub README.md.
+🩺 Project Title: Open-Scope: The Intelligent Edge-AI Stethoscope
+Tagline: Empowering Rural Healthcare with Offline Acoustic Triage
+1. The Problem Statement
+The Gap: Cardiovascular diseases (CVDs) are a leading cause of death in rural India. However, Primary Health Centers (PHCs) lack trained cardiologists.
+The Barrier: Traditional stethoscopes rely entirely on the listener's expertise. A rural health worker (ASHA/ANM) can hear a heartbeat but often lacks the training to distinguish between benign sounds and pathological murmurs (e.g., Mitral Regurgitation).
+The Failure of Existing Tech: "Digital Stethoscopes" exist but are either prohibitively expensive (>₹20,000) or require high-speed internet to send audio to a cloud server—infrastructure that is unreliable in remote villages.
+2. The Proposed Solution
+Open-Scope is a low-cost, open-source digital stethoscope that performs on-device diagnosis.
+Instead of just amplifying sound, it uses TinyML (Edge AI) to classify heart sounds as "Normal" or "Abnormal" locally on the microcontroller, without needing a smartphone or internet connection.
+3. Technical Architecture (The "ECE" Core)
+A. Analog Front-End (The Sensor Stage)
+Sensor: Piezoelectric diaphragm (Contact Mic) to capture chest vibrations directly, naturally rejecting 80% of ambient room noise.
+Signal Conditioning:
+Impedance Buffer: A JFET-input Op-Amp (TL072) buffer stage to preserve low-frequency heart sounds (S1/S2 "Lub-Dub").
+Active Filtering: A 4th-order Sallen-Key Low-Pass Filter (Cutoff: $600Hz$) to remove high-frequency hiss, speech, and electromagnetic interference.
+B. Digital Processing (The Logic Stage)
+Controller: ESP32 DevKit V1 (Dual-core, 240MHz).
+Signal Processing: Real-time Fast Fourier Transform (FFT) to convert time-domain audio into a Frequency Spectrogram.
+Inference Engine: A TinyML Neural Network (trained via Edge Impulse) running on the ESP32. It analyzes the spectrogram 5 times per second to detect specific anomaly patterns (Murmurs/Arrhythmia).
+C. User Interface (The Triage Stage)
+Visual: 0.96" OLED Display showing a rolling Waveform and real-time BPM (Beats Per Minute).
+Decision: "Traffic Light" LEDs for immediate triage:
+🟢 Green: Normal Rhythm & Quality.
+🔴 Red: Potential Murmur/Abnormality Detected (Refer to Doctor).
+4. Key Innovations (USP)
+5. Methodology (How It Works)
+Placement: The device is placed on the patient's chest (Mitral/Tricuspid valve areas).
+Acquisition: The Piezo sensor converts mechanical vibrations into a voltage signal.
+Conditioning: The Analog circuit filters out noise above 600Hz and amplifies the signal to 3.3V range.
+Digitization: The ESP32's ADC samples the audio at 4kHz.
+Inference: The internal Neural Network classifies the audio clip.
+Feedback: The OLED displays the heart rate, and the Red/Green LED lights up within 5 seconds to guide the health worker.
+6. Feasibility & Tools
+Hardware: All components (ESP32, TL072, Piezo) are standard and available in local electronics markets (SP Road/Ritchie Street).
+Software Stack:
+Firmware: Arduino IDE (C++).
+AI Training: Edge Impulse (Web-based, Free Tier).
+PCB Design: KiCad (Open Source - Critical for FOSSEE).
+Enclosure: FreeCAD/OpenSCAD (Open Source).
+7. Target Impact
+Primary User: ASHA Workers, ANMs, and Rural Clinic Nurses.
+Benefit: Reduces unnecessary referrals to city hospitals (cost saving) while ensuring critical cardiac cases are not missed (life-saving).
+SDG Alignment: Directly targets UN SDG 3 (Good Health and Well-being).
+Next Step for You:
+Copy this text into a Google Doc and share it with your team. This is your "Master Plan." Does this structure clarify the path forward?
