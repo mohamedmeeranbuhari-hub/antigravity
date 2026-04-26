@@ -1,0 +1,6 @@
+Position,Name,Type,Question,Description,FrequencyNumerator,FrequencyDenominator,Color,Unit,Target Type,Target Value,Archived?
+001,C,YES_NO,,,1,1,#7CB342,,,,false
+002,Mintop,NUMERICAL,,,1,1,#1976D2,,AT_MOST,2.0,false
+003,Book,YES_NO,,,1,1,#303F9F,,,,false
+004,N p,YES_NO,,,1,1,#388E3C,,,,false
+005,Excercise,YES_NO,,,1,1,#D81B60,,,,false

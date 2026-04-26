@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  /* Vibrant Light Mode Theme */
+  --bg-color: #f0f4f8;
+  --surface-color: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  
+  --primary: #1cb0f6;      /* Duolingo Blue */
+  --primary-hover: #1899d6;
+  --primary-shadow: #1480b3;
+  
+  --success: #58cc02;      /* Duolingo Green */
+  --success-hover: #4cae02;
+  --success-shadow: #46a302;
+  
+  --danger: #ff4b4b;       /* Duolingo Red */
+  --danger-hover: #e53935;
+  --danger-shadow: #d32f2f;
+  
+  --warning: #ffc800;      /* Duolingo Yellow / Freeze */
+  --warning-hover: #ffb300;
+  --warning-shadow: #e6a800;
+
+  --border-light: #e5e7eb;
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-family: 'Nunito', -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 100px;
+}
+
+/* Gamified Button Styling */
+.btn {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+  text-transform: uppercase;
+  color: white;
+}
+
+.btn:active {
+  transform: translateY(4px);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  box-shadow: 0 4px 0 var(--primary-shadow);
+}
+.btn-primary:active {
+  box-shadow: 0 0px 0 var(--primary-shadow);
+}
+
+.btn-success {
+  background-color: var(--success);
+  box-shadow: 0 4px 0 var(--success-shadow);
+}
+.btn-success:active {
+  box-shadow: 0 0px 0 var(--success-shadow);
+}
+
+/* Card Styling */
+.card {
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 2px solid var(--border-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
